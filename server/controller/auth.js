@@ -38,6 +38,11 @@ export const Register = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
+    if (!user) {
+      res.json({
+        message: "User nto found or login first",
+      });
+    }
     const matchPassword = await bcrypt.compare(password, user.password);
     if (!matchPassword) {
       res.json({
@@ -46,7 +51,7 @@ export const Register = async (req, res) => {
       });
     }
     const token = await jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY);
-    res.cookies("access_token", token, {
+    res.cookie("access_token", token, {
       httpOnly: true,
     });
 
@@ -64,7 +69,52 @@ export const Register = async (req, res) => {
     });
   }
 };
-
-export const test = async (req, res) => {
-  console.log("success");
+export const logout = async (req, res) => {
+  try {
+    
+    res.clearCookie("access_token"); // Properly clear the cookie
+    res.status(200).json({
+      success: true,
+      message: "Logout successful",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error logging out",
+      error: error.message,
+    });
+  }
 };
+export const getAll = async (req, res) => {
+  try {
+    const all = await User.find();
+    res.json({
+      message: "successfuly get all user",
+      data: all,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const test = async(req,res)=>{
+  try {
+    const user = await User.findById(req.params.id)
+    if(user){
+      res.json({
+        message:"user found",
+        data:user
+      })
+    }else{
+      res.json({
+        message:"user not found Register first",
+      })
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({
+      message:"erro in test",
+      error:error.message
+    })
+    
+  }
+}
