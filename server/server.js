@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import dbConnect from "./config/dbConnect.js";
 import authRouter from "./routes/auth.js";
+import commentRouter from "./routes/comment.js";
 import cookieParser from "cookie-parser";
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/auth", authRouter);
+app.use("/api/comment", commentRouter);
 
 // Root route
 app.get("/", (req, res) => {
@@ -27,6 +29,6 @@ app.get("/", (req, res) => {
 });
 
 // Listen
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {  
   console.log(`Server is running on port ${process.env.PORT || 3000}`);
 });
