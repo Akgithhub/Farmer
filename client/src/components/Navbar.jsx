@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTrail, a } from "@react-spring/web";
 import { Link } from "react-router-dom";
+import Log from "./Log";
 
 const Trail = ({ open, children }) => {
   const items = React.Children.toArray(children);
@@ -23,7 +24,7 @@ const Trail = ({ open, children }) => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ user, setUser }) => {
   const [open, setOpen] = useState(true);
   const [menu, setMenu] = useState("");
   const handleMenuClick = (selectedMenu) => {
@@ -97,9 +98,13 @@ const Navbar = () => {
             </button>
           </div>
           <div>
-            <button className="text-[#8ba17f] border-2 border-[#56644f] px-2 py-1 rounded-2xl hover:text-white hover:border-[#8ba17f] text-[1rem]">
+            <button
+              className="text-[#8ba17f] border-2 border-[#56644f] px-2 py-1 rounded-2xl hover:text-white hover:border-[#8ba17f] text-[1rem]"
+              onClick={() => setUser(!user)}
+            >
               Sign Up
             </button>
+            {user ? <Log setUser={setUser} /> : null}
           </div>
         </div>
       </div>

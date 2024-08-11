@@ -96,16 +96,18 @@ body {
   margin-top: auto; /* Pushes the form to the bottom */
 }
 
-input {
-  border: 1px solid #ccc;
-  padding: 8px;
-  border-radius: 4px 0 0 4px;
-}
-
-button {
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
+.form {
+  position: absolute; /* Fixed position to keep it at the bottom of the screen */
+  top: 30vh;
+  /* Positions it at the bottom */
+  left: 50%; /* Centers horizontally */
+  transform: translateX(-50%); /* Adjusts the center position */
+  z-index: 2; /* Ensures it stays above other content */
+  margin: 0 auto; /* Centering horizontally with margin auto */
+  /* Full width to ensure proper centering */
+   /* Optional: Set a maximum width for better appearance */
+  padding: 1rem; /* Optional: Adds padding around the form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+  border: 2px solid #8ba17f; /* Optional: Adds a border */
+  border-radius: 5%;
 }
