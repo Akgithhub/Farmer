@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTrail, a } from "@react-spring/web";
+import { Link } from "react-router-dom";
 
 const Trail = ({ open, children }) => {
   const items = React.Children.toArray(children);
@@ -47,7 +48,7 @@ const Navbar = () => {
             } cursor-pointer`}
             onClick={() => handleMenuClick("home")}
           >
-            Home
+            <Link to={"/"}>Home</Link>
           </button>
           <button
             className={`menu-item ${
@@ -55,7 +56,7 @@ const Navbar = () => {
             } cursor-pointer`}
             onClick={() => setMenu("contact")}
           >
-            Contact Us
+            <a href="#footer">Contact Us</a>
           </button>
           <button
             className={`menu-item ${
@@ -77,11 +78,13 @@ const Navbar = () => {
         <div className="flex gap-4 justify-evenly items-center">
           <div>
             <button>
-              <img
-                src="./chat.svg"
-                alt=""
-                className="h-[3vh] w-[3vw] cursor-pointer hover:scale-110 hover:translate-y-2 transition-all"
-              />
+              <Link to={"/comment"}>
+                <img
+                  src="./chat.svg"
+                  alt=""
+                  className="h-[3vh] w-[3vw] cursor-pointer hover:scale-110 hover:translate-y-2 transition-all"
+                />
+              </Link>
             </button>
           </div>
           <div>
