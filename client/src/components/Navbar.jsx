@@ -41,53 +41,57 @@ const Navbar = () => {
           </Trail>
         </div>
         <div className="navbar-menu flex gap-10 items-center text-white font-medium list-none">
-          <li
+          <button
             className={`menu-item ${
               menu === "home" ? "active" : ""
             } cursor-pointer`}
             onClick={() => handleMenuClick("home")}
           >
             Home
-          </li>
-          <li
+          </button>
+          <button
             className={`menu-item ${
               menu === "contact" ? "active" : ""
             } cursor-pointer`}
             onClick={() => setMenu("contact")}
           >
             Contact Us
-          </li>
-          <li
+          </button>
+          <button
             className={`menu-item ${
               menu === "about" ? "active" : ""
             } cursor-pointer`}
             onClick={() => setMenu("about")}
           >
-            About
-          </li>
-          <li
+            Who We Are
+          </button>
+          <button
             className={`menu-item ${
               menu === "test" ? "active" : ""
             } cursor-pointer`}
             onClick={() => setMenu("test")}
           >
             Test
-          </li>
+          </button>
         </div>
         <div className="flex gap-4 justify-evenly items-center">
           <div>
-            <img
-              src="./chat.svg"
-              alt=""
-              className="h-[4vh] w-[4vw] cursor-pointer hover:scale-110 hover:translate-y-2 transition-all"
-            />
+            <button>
+              <img
+                src="./chat.svg"
+                alt=""
+                className="h-[3vh] w-[3vw] cursor-pointer hover:scale-110 hover:translate-y-2 transition-all"
+              />
+            </button>
           </div>
           <div>
-            <img
-              src="./ai.svg"
-              alt=""
-              className="h-[4vh] w-[4vw] cursor-pointer hover:scale-110 hover:translate-y-2 transition-all"
-            />
+            <button>
+              <img
+                src="./ai.svg"
+                alt=""
+                className="h-[3vh] w-[3vw] cursor-pointer hover:scale-110 hover:translate-y-2 transition-all"
+              />
+            </button>
           </div>
           <div>
             <button className="text-[#8ba17f] border-2 border-[#56644f] px-2 py-1 rounded-2xl hover:text-white hover:border-[#8ba17f] text-[1rem]">
