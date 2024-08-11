@@ -1,5 +1,5 @@
 import express from "express";
-import { getAll, logout, Register, signUp,test } from "../controller/auth.js";
+import { getAll, logout, Register, signUp, test } from "../controller/auth.js";
 import ProtectRoute from "../middleware/ProtectRoute.js";
 
 // Router
@@ -10,7 +10,6 @@ authRouter.post("/signup", signUp);
 authRouter.post("/register", Register);
 authRouter.delete("/logout/:id", logout);
 authRouter.get("/all", getAll);
-authRouter.get("/test/:id ",ProtectRoute, test);
-
+authRouter.get("/test/:id ", ProtectRoute, test);
 
 export default authRouter;
