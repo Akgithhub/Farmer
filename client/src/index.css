@@ -11,3 +11,36 @@
 body {
   background-color: #18332f;
 }
+/* Container for menu items */
+.navbar-menu {
+  position: relative;
+}
+
+/* Style for active menu item */
+.navbar-menu .menu-item {
+  position: relative;
+  color: whitesmoke;
+}
+
+/* Custom underline */
+.navbar-menu .menu-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px; /* Margin from the bottom */
+  width: 0; /* Start with 0 width for animation */
+  height: 4px; /* Thickness of the underline */
+  background-color: #8ba17f; /* Color of the underline */
+  border-radius: 2px; /* Border radius for rounded corners */
+  transition: width 0.3s ease, left 0.3s ease; /* Smooth transition for width and position */
+}
+
+/* Active tab */
+.navbar-menu .menu-item.active::after {
+  width: 100%; /* Full width of the menu item */
+}
+
+/* Slider transition */
+.navbar-menu .menu-item.active {
+  color: #8ba17f; /* Active tab color */
+}
