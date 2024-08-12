@@ -90,11 +90,13 @@ const Navbar = ({ user, setUser }) => {
           </div>
           <div>
             <button>
-              <img
-                src="./ai.svg"
-                alt=""
-                className="h-[3vh] w-[3vw] cursor-pointer hover:scale-110 hover:translate-y-2 transition-all"
-              />
+              <Link to={"/chat"}>
+                <img
+                  src="./ai.svg"
+                  alt=""
+                  className="h-[3vh] w-[3vw] cursor-pointer hover:scale-110 hover:translate-y-2 transition-all"
+                />
+              </Link>
             </button>
           </div>
           <div>

@@ -105,9 +105,14 @@ body {
   z-index: 2; /* Ensures it stays above other content */
   margin: 0 auto; /* Centering horizontally with margin auto */
   /* Full width to ensure proper centering */
-   /* Optional: Set a maximum width for better appearance */
+  /* Optional: Set a maximum width for better appearance */
   padding: 1rem; /* Optional: Adds padding around the form */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
   border: 2px solid #8ba17f; /* Optional: Adds a border */
   border-radius: 5%;
+}
+.chat-h {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
